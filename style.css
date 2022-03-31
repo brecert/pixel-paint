@@ -9,7 +9,9 @@ body {
   margin-top: 5vh;
 }
 
-main {
+.main {
+  position: relative;
+
   width: 100%;
   max-width: 756px;
   margin: auto;
@@ -26,10 +28,6 @@ canvas {
   box-sizing: border-box;
 
   background-color: #ffffeb;
-}
-
-form {
-  margin: 0.5ch;
 }
 
 #colors {
@@ -53,4 +51,17 @@ form {
 #colors input:checked {
   border-style: inset;
   border-color: var(--color);
+}
+
+#sizes {
+  display: flex;
+  flex-direction: column-reverse;
+  place-items: end;
+}
+
+#sizes input {
+  width: var(--size);
+  height: var(--size);
+  appearance: none;
+  background: var(--fillColor);
 }

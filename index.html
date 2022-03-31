@@ -8,11 +8,21 @@
     <script src="script.js" type="module"></script>
   </head>
   <body>
-    <main>
-      <form id="form">
-        <div id="colors"></div>
-      </form>
+    <form id="form" class="main">
+      <div id="colors"></div>
       <canvas is="simple-draw" width="256" height="128" id="canvas"></canvas>
-    </main>
+      <div id="sizes">
+        <input type="radio" name="size" value="2" style="--size: 8px" />
+        <input
+          type="radio"
+          name="size"
+          value="4"
+          style="--size: 16px"
+          checked
+        />
+        <input type="radio" name="size" value="8" style="--size: 24px" />
+        <input type="radio" name="size" value="16" style="--size: 32px" />
+      </div>
+    </form>
   </body>
 </html>

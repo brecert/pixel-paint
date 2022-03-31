@@ -2,7 +2,7 @@ import * as simpleDraw from "./elements/simple-draw.js";
 simpleDraw.define("simple-draw");
 
 // https://lospec.com/palette-list/pear36
-const palette = `
+const PALETTE = `
   ffffeb c2c2d1 7e7e8f 606070 43434f
   66ffe3 4da6ff 4b5bab 473b78 322947
   cfff70 8fde5d 3ca370 3d6e70 323e4f
@@ -18,17 +18,19 @@ const palette = `
 const update = () => {
   const formData = new FormData(form);
   canvas.ctx.fillStyle = formData.get("color");
+  document.body.style.setProperty("--fillColor", formData.get("color"));
+  canvas.strokeSize = formData.get("size");
 };
 
 form.oninput = update;
 
-for (let color of palette) {
+for (let color of PALETTE) {
   let $el = document.createElement("input");
   $el.type = "radio";
   $el.value = color;
   $el.style.setProperty("--color", color);
   $el.name = "color";
-  $el.ariaLabel = `pick color ${color}`;
+  $el.ariaLabel = `pick brush color ${color}`;
   if (color === "#272736") {
     $el.checked = true;
   }
